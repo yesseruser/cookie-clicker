@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist gettext-domain="cookie-clicker">
+	<schema id="io.github.yesseruser.CookieClicker" path="/io/github/yesseruser/CookieClicker/">
+	</schema>
+</schemalist>
