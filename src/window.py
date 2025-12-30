@@ -24,7 +24,5 @@ from gi.repository import Gtk
 class CookieClickerWindow(Adw.ApplicationWindow):
     __gtype_name__ = 'CookieClickerWindow'
 
-    label = Gtk.Template.Child()
-
     def __init__(self, **kwargs):
         super().__init__(**kwargs)

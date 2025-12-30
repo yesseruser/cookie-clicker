@@ -24,13 +24,39 @@
         <property name="content">
           <object class="AdwStatusPage" id="page">
             <child>
-              <object class="GtkButton" id="cookie">
-                <property name="label" translatable="yes">Click me!</property>
-                <property name="halign">center</property>
-                <style>
-                  <class name="pill"/>
-                  <class name="suggested-action"/>
-                </style>
+              <object class="GtkBox">
+                <property name="orientation">vertical</property>
+
+                <child>
+                  <object class="GtkButton" id="cookie_button">
+                    <property name="label" translatable="yes">Click me!</property>
+                    <property name="halign">center</property>
+                    <style>
+                      <class name="pill"/>
+                      <class name="suggested-action"/>
+                    </style>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkBox">
+                    <property name="orientation">horizontal</property>
+                    <property name="halign">center</property>
+
+                    <child>
+                      <object class="GtkLabel" id="cookies_label">
+                        <property name="label" translatable="yes">Cookies:</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkLabel" id="cookie_count_label">
+                        <property name="label" translatable="no"> 0</property>
+                        <style>
+                          <class name="accent"/>
+                        </style>
+                      </object>
+                    </child>
+                  </object>
+                </child>
               </object>
             </child>
           </object>
@@ -38,18 +64,15 @@
       </object>
     </property>
   </template>
+
   <menu id="primary_menu">
     <section>
-      <item>
-        <attribute name="label" translatable="yes">_Preferences</attribute>
-        <attribute name="action">app.preferences</attribute>
-      </item>
       <item>
         <attribute name="label" translatable="yes">_Keyboard Shortcuts</attribute>
         <attribute name="action">app.shortcuts</attribute>
       </item>
       <item>
-        <attribute name="label" translatable="yes">_About Cookie-clicker</attribute>
+        <attribute name="label" translatable="yes">_About Cookie Clicker</attribute>
         <attribute name="action">app.about</attribute>
       </item>
     </section>
