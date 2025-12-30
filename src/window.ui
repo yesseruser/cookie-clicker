@@ -3,9 +3,10 @@
   <requires lib="gtk" version="4.0"/>
   <requires lib="Adw" version="1.0"/>
   <template class="CookieClickerWindow" parent="AdwApplicationWindow">
-    <property name="title" translatable="yes">Cookie-clicker</property>
+    <property name="title" translatable="yes">Cookie Clicker</property>
     <property name="default-width">800</property>
     <property name="default-height">600</property>
+
     <property name="content">
       <object class="AdwToolbarView">
         <child type="top">
@@ -21,11 +22,17 @@
           </object>
         </child>
         <property name="content">
-          <object class="GtkLabel" id="label">
-            <property name="label" translatable="yes">Hello, World!</property>
-            <style>
-              <class name="title-1"/>
-            </style>
+          <object class="AdwStatusPage" id="page">
+            <child>
+              <object class="GtkButton" id="cookie">
+                <property name="label" translatable="yes">Click me!</property>
+                <property name="halign">center</property>
+                <style>
+                  <class name="pill"/>
+                  <class name="suggested-action"/>
+                </style>
+              </object>
+            </child>
           </object>
         </property>
       </object>
