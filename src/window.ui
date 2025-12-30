@@ -41,17 +41,22 @@
                   <object class="GtkBox">
                     <property name="orientation">horizontal</property>
                     <property name="halign">center</property>
+                    <property name="margin-top">4px</property>
 
                     <child>
                       <object class="GtkLabel" id="cookies_label">
-                        <property name="label" translatable="yes">Cookies:</property>
+                        <property name="label" translatable="yes">Cookies: </property>
+                        <style>
+                          <class name="dimmed"/>
+                        </style>
                       </object>
                     </child>
                     <child>
                       <object class="GtkLabel" id="cookie_count_label">
-                        <property name="label" translatable="no"> 0</property>
+                        <property name="label" translatable="no">0</property>
                         <style>
                           <class name="accent"/>
+                          <class name="title-1"/>
                         </style>
                       </object>
                     </child>
