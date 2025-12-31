@@ -1,8 +1,8 @@
 # List of source files containing translatable strings.
 # Please keep this file sorted alphabetically.
-data/io.github.yesseruser.CookieClicker.desktop.in
-data/io.github.yesseruser.CookieClicker.metainfo.xml.in
-data/io.github.yesseruser.CookieClicker.gschema.xml
+data/io.github.yesseruser.Cookie-Clicker.desktop.in
+data/io.github.yesseruser.Cookie-Clicker.metainfo.xml.in
+data/io.github.yesseruser.Cookie-Clicker.gschema.xml
 src/main.py
 src/window.py
 src/window.ui

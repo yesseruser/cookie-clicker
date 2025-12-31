@@ -1,4 +1,4 @@
-application_id = 'io.github.yesseruser.CookieClicker'
+application_id = 'io.github.yesseruser.Cookie-Clicker'
 
 scalable_dir = 'hicolor' / 'scalable' / 'apps'
 install_data(

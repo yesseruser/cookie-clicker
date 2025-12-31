@@ -21,7 +21,7 @@ from gi.repository import Adw
 from gi.repository import Gtk
 
 
-@Gtk.Template(resource_path="/io/github/yesseruser/CookieClicker/window.ui")
+@Gtk.Template(resource_path="/io/github/yesseruser/Cookie-Clicker/window.ui")
 class CookieClickerWindow(Adw.ApplicationWindow):
     __gtype_name__ = "CookieClickerWindow"
 
