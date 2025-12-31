@@ -1,10 +1,10 @@
 [Desktop Entry]
-Name=cookie-clicker
+Name=Cookie Clicker
 Exec=cookie-clicker
 Icon=io.github.yesseruser.CookieClicker
 Terminal=false
 Type=Application
-Categories=Utility;
-Keywords=GTK;
+Categories=Game;ArcadeGame;
+Keywords=GTK;cookie;
 StartupNotify=true
 DBusActivatable=true
