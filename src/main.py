@@ -20,8 +20,8 @@
 import sys
 import gi
 
-gi.require_version('Gtk', '4.0')
-gi.require_version('Adw', '1')
+gi.require_version("Gtk", "4.0")
+gi.require_version("Adw", "1")
 
 from gi.repository import Gtk, Gio, Adw
 from .window import CookieClickerWindow
@@ -30,13 +30,19 @@ from .window import CookieClickerWindow
 class CookieClickerApplication(Adw.Application):
     """The main application singleton class."""
 
+    cookies: int = 0
+    windows: list[CookieClickerWindow] = []
+
     def __init__(self):
-        super().__init__(application_id='io.github.yesseruser.CookieClicker',
-                         flags=Gio.ApplicationFlags.DEFAULT_FLAGS,
-                         resource_base_path='/io/github/yesseruser/CookieClicker')
-        self.create_action('quit', lambda *_: self.quit(), ['<control>q'])
-        self.create_action('about', self.on_about_action)
-        self.create_action('preferences', self.on_preferences_action)
+        super().__init__(
+            application_id="io.github.yesseruser.CookieClicker",
+            flags=Gio.ApplicationFlags.DEFAULT_FLAGS,
+            resource_base_path="/io/github/yesseruser/CookieClicker",
+        )
+        self.create_action("quit", lambda *_: self.quit(), ["<control>q"])
+        self.create_action("about", self.on_about_action)
+        self.create_action("preferences", self.on_preferences_action)
+        self.create_action("cookie", self.on_cookie_action, ["space"])
 
     def do_activate(self):
         """Called when the application is activated.
@@ -48,22 +54,30 @@ class CookieClickerApplication(Adw.Application):
         if not win:
             win = CookieClickerWindow(application=self)
         win.present()
+        self.windows.append(win)
 
     def on_about_action(self, *args):
         """Callback for the app.about action."""
-        about = Adw.AboutDialog(application_name='cookie-clicker',
-                                application_icon='io.github.yesseruser.CookieClicker',
-                                developer_name='yesseruser',
-                                version='0.1.0',
-                                developers=['yesseruser'],
-                                copyright='© 2025 yesseruser')
+        about = Adw.AboutDialog(
+            application_name="cookie-clicker",
+            application_icon="io.github.yesseruser.CookieClicker",
+            developer_name="yesseruser",
+            version="0.1.0",
+            developers=["yesseruser"],
+            copyright="© 2025 yesseruser",
+        )
         # Translators: Replace "translator-credits" with your name/username, and optionally an email or URL.
-        about.set_translator_credits(_('translator-credits'))
+        about.set_translator_credits(_("translator-credits"))
         about.present(self.props.active_window)
 
     def on_preferences_action(self, widget, _):
         """Callback for the app.preferences action."""
-        print('app.preferences action activated')
+        print("app.preferences action activated")
+
+    def on_cookie_action(self, *args):
+        self.cookies += 1
+        for window in self.windows:
+            window.update_label(self.cookies)
 
     def create_action(self, name, callback, shortcuts=None):
         """Add an application action.
@@ -85,3 +99,4 @@ def main(version):
     """The application's entry point."""
     app = CookieClickerApplication()
     return app.run(sys.argv)
+

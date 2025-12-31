@@ -20,9 +20,21 @@
 from gi.repository import Adw
 from gi.repository import Gtk
 
-@Gtk.Template(resource_path='/io/github/yesseruser/CookieClicker/window.ui')
+
+@Gtk.Template(resource_path="/io/github/yesseruser/CookieClicker/window.ui")
 class CookieClickerWindow(Adw.ApplicationWindow):
-    __gtype_name__ = 'CookieClickerWindow'
+    __gtype_name__ = "CookieClickerWindow"
+
+    cookie_count_label: Gtk.Label = Gtk.Template.Child()
+    label_box: Gtk.Box = Gtk.Template.Child()
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
+
+    def update_label(self, cookies: int):
+        print(f"Updating label: {cookies}")
+        self.cookie_count_label.set_label(f"{cookies}")
+        if cookies == 0:
+            self.label_box.set_visible(False)
+        elif cookies >= 1:
+            self.label_box.set_visible(True)
