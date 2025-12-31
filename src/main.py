@@ -35,9 +35,9 @@ class CookieClickerApplication(Adw.Application):
 
     def __init__(self):
         super().__init__(
-            application_id="io.github.yesseruser.CookieClicker",
+            application_id="io.github.yesseruser.Cookie-Clicker",
             flags=Gio.ApplicationFlags.DEFAULT_FLAGS,
-            resource_base_path="/io/github/yesseruser/CookieClicker",
+            resource_base_path="/io/github/yesseruser/Cookie-Clicker",
         )
         self.create_action("quit", lambda *_: self.quit(), ["<control>q"])
         self.create_action("about", self.on_about_action)
@@ -59,15 +59,15 @@ class CookieClickerApplication(Adw.Application):
     def on_about_action(self, *args):
         """Callback for the app.about action."""
         about = Adw.AboutDialog(
-            application_name="cookie-clicker",
-            application_icon="io.github.yesseruser.CookieClicker",
+            application_name="Cookie Clicker",
+            application_icon="io.github.yesseruser.Cookie-Clicker",
             developer_name="yesseruser",
-            version="0.1.0",
+            version="1.0.0",
             developers=["yesseruser"],
             copyright="© 2025 yesseruser",
         )
         # Translators: Replace "translator-credits" with your name/username, and optionally an email or URL.
-        about.set_translator_credits(_("translator-credits"))
+        # about.set_translator_credits(_("translator-credits"))
         about.present(self.props.active_window)
 
     def on_preferences_action(self, widget, _):
